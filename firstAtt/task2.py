@@ -1,19 +1,21 @@
 # 25
 # Написать функцию, которая создаст новый двумерный массив, «повернутый» относительно переданного на 90°.
+from links import tTwo_infile, tTwo_outfile
+
 
 def arrayreversal(array):
-    outputFile = open('/Users/n0rthl1ght/Desktop/вгу/pyhton/firstAtt/results/outputTask2', 'w+')
+    outputFile = open(tTwo_outfile, 'w+')
     outputFile.close()
 
 
 def getarraysize_lines():
-    with open('/Users/n0rthl1ght/Desktop/вгу/pyhton/firstAtt/input/inputTask2') as file:
+    with open(tTwo_infile) as file:
         line = sum(1 for line in file)
     return line
 
 
 def getarraysize_columns():
-    with open('/Users/n0rthl1ght/Desktop/вгу/pyhton/firstAtt/input/inputTask2') as file:
+    with open(tTwo_infile) as file:
         for line in file:
             column = ([int(x) for x in line.split()])
             break
