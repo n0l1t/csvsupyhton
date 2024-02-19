@@ -10,10 +10,10 @@ def arrayreversal(array):
     outputFile = open(tTwo_outfile, 'w+')
     resultArray = list(map(list, zip(*array[::-1])))
 
-    for i in range (ax2):
+    for i in range(ax2):
         if i > 0:
             outputFile.write('\n')
-        for j in range (ax1):
+        for j in range(ax1):
             outputFile.write(str(resultArray[i][j]) + ' ')
     outputFile.close()
 
