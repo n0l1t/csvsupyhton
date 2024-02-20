@@ -7,17 +7,34 @@ from utils import *
 from links import *
 
 
-def couplesercher():
+def couplesercher(arr,l,c):
+    out = open(tThree_outfile,'w+')
+    bestStudent = []
+    for i in range(4):
+        bestStudent.append(getBestStudent(arr,'М',str(i+1),l))
+        bestStudent.append(getBestStudent(arr,'Ж',str(i+1),l))
 
-    return 0
+    for i in range(len(bestStudent)):
+        if(i==0): out.write('1st year couple:'+'\n')
+        if(i==2): out.write('2nd year couple:'+'\n')
+        if(i==4): out.write('3rd year couple:'+'\n')
+        if(i==6): out.write('4th year couple:'+'\n')
+        for j in range(3):
+            if(bestStudent[i][0]=='None'):
+                out.write('Coupe is not found')
+                break
+            else:
+                out.write(str(bestStudent[i][j]+' '))
+                if(j==2):
+                    out.write('('+bestStudent[i][4]+' '+bestStudent[i][5]+')\n')
+    out.close()
 
 with open(tThree_infile_1, 'r') as file:
-    ax1 = lines()
-    ax2 = columns()
+    l = lines()
+    c = columns()
     arr = file.readlines()
-    for i in range(ax1):
-        arr[i] = list(map(str, (arr[i].rstrip().split(' ')[:ax2])))
-    arr = arr[:ax1]
+    for i in range(l):
+        arr[i] = list(map(str, (arr[i].rstrip().split(' ')[:c])))
+    arr = arr[:l]
 
-print(getBestStudent(arr,'М','1'))
-print(getBestStudent(arr,'Ж','1'))
+couplesercher(arr,l,c)

@@ -16,8 +16,7 @@ def columns():
     return len(column)
 
 
-def getBestStudent(arr,sex,year):
-    l=lines()
+def getBestStudent(arr,sex,year,l):
     student=[]
     studentWithSameGrade=[]
     temp = 0.0
@@ -25,7 +24,8 @@ def getBestStudent(arr,sex,year):
         if(arr[i][3] == sex and arr[i][4]==year):
             student.append(arr[i])
     if(student==[]):
-        return 'None'
+        student.append(str('None'))
+        return student
     else:
         for i in range(len(student)):
             if(float(student[i][5])>temp):
